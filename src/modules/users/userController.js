@@ -14,7 +14,7 @@ export const registerUser = async (userData) => {
 export const getUser = async (userId) => {
     console.log(userId)
     const userCollection = getCollection('users');
-    const user = await userCollection.findOne({ id: ObjectId(userId) });
+    const user = await userCollection.findOne({ _id: new ObjectId(userId) });
     return user;
 }
 
@@ -31,13 +31,13 @@ export const updateUser = async (userId, updatedData) => {
         updatedData.password = await bcrypt.hash(updatedData.password, 10);
     };
 
-    const result = await userCollection.updateOne({ _id: userId }, { $set: updatedData });
+    const result = await userCollection.updateOne({ _id: ObjectId(userId) }, { $set: updatedData });
     return result;
 }
 
 export const deleteUser = async (userId) => {
     const userCollection = getCollection('user');
-    const result = await userCollection.deleteOne({ _id:userId});
+    const result = await userCollection.deleteOne({ _id : new ObjectId(userId)});
     return result;
 };
 

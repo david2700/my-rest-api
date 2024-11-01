@@ -1,15 +1,15 @@
 import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 
 const uri = "mongodb+srv://mongodb:wordpass@cluster0.e7gbl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const client = new MongoClient(uri);
+
 
 let database
 
 export const connectDB = async () => {
     try {
-        await client.connect();
+        database = await mongoose.connect(uri, {dbName: "pfms"});
         console.log("connected to mongodb");
-        database = client.db("pfms");
     } catch(error) {
         console.error("Failed to connect to database", error);
     }
