@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 //what am I trying to make here:
 //personal finance management system
-//takes a user, allows a user to log in and register 
+//takes a user, allows a user to log in and register
 //authenticates a user
 //presents the user's data in a presentable format on the dashboard, they have options to do certain things like
 //report button to keep track of transactions
