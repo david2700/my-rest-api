@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb";
-import { getCollection } from "../../config/database.js";
 import bcrypt from 'bcrypt';
 import User from "./userSchema.js";
 
