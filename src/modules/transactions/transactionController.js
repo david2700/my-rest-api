@@ -1,8 +1,8 @@
-import Transaction from "./transactionSchema";
-import User from "../users/userSchema";
+import Transaction from "./transactionSchema.js";
+import User from "../users/userSchema.js";
 
-export const PostTransaction = async (transactionData, userId = 44) => {
-    transactionData.user = userId;
+export const PostTransaction = async (transactionData) => {
+    //transactionData.user = userId;
     const transaction = await Transaction.create(transactionData);
 
     return transaction;

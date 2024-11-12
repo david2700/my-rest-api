@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deleteTransaction, getAllTransactions, getTransaction, PostTransaction, updateTransaction } from "./transactionController";
+import { deleteTransaction, getAllTransactions, getTransaction, PostTransaction, updateTransaction } from "./transactionController.js";
 
 const router = Router();
 
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 });
 
 
-router.get("/all", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const transactions = await getAllTransactions();
         res.json(transactions);
